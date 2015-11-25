@@ -5,7 +5,7 @@ var current = quiz.randomQuestion();
 /* GET quizes/question page. */
 exports.question = function(req,res) {
   current = quiz.randomQuestion();
-  res.render('quizes/question', {pregunta: current.pregunta});
+  res.render('pages/quizes/question', {pregunta: current.pregunta});
 };
 
 exports.home = function(req, res){
@@ -16,7 +16,7 @@ exports.home = function(req, res){
 exports.answer = function(req, res) {
   var c = 'Incorrecto';
   if (current.respuesta(req.query.respuesta)) { c = 'Correcto'; }
-  res.render('quizes/answer', {respuesta: c});
+  res.render('pages/quizes/answer', {respuesta: c});
 };
 
 exports.questions = function(req, res){
@@ -25,15 +25,15 @@ exports.questions = function(req, res){
   for(var i = 0; i < nQ; i++){
      salida[i] = quiz.getQuestion(i);
   }
-  res.render('quizes/questions', {respuesta: salida});
+  res.render('pages/quizes/questions', {respuesta: salida});
 };
 
 exports.choosedQuestion = function(req, res){
   try {
     current = quiz.getQuestion(req.params.id - 1);
-    res.render('quizes/question', {pregunta: current.pregunta});
+    res.render('pages/quizes/question', {pregunta: current.pregunta});
   }catch (e) {
-    res.render('error2', {message: "No existe esa pregunta"});
+    res.render('pages/errors/error2', {message: "No existe esa pregunta"});
   }
 
 };
