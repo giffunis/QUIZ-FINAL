@@ -1,0 +1,7 @@
+<!-- views/partials/partials/preguntas/pSimple.ejs -->
+
+<select name='respuesta[]' id='pSimple' multiple>
+  <% for(var i = 0; i < pregunta.arrayResp.length; i++){ %>
+    <option value='<%- pregunta.arrayResp[i] %>' > <%- pregunta.arrayResp[i] %> </option>
+  <% } %>
+</select>
