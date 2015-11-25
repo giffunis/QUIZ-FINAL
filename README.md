@@ -1,4 +1,4 @@
-# ExpressJS: My new second app.STW8
+# ExpressJS: My new second app. STW8
 ## Subject: Sistemas y Tecnologías Web
 
 #### 1. Resume.
