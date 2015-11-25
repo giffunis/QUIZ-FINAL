@@ -10,8 +10,12 @@ var routes = require('./routes/index');
 var quizesRoute = require('./routes/quizes.js');
 
 var expressLayouts = require('express-ejs-layouts');
-
 var app = express();
+
+app.set('layout', 'layout'); // defaults to 'layout'
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(expressLayouts);
+
 app.use('/', routes);
 app.use('/quizes',quizesRoute);
 
