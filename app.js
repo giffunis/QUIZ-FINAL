@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var quizesRoute = require('./routes/quizes.js');
 
-var partials = require('express-partials');
+var expressLayouts = require('express-ejs-layouts');
 
 var app = express();
 
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(partials());
+app.use(expressLayouts);
 app.use('/', routes);
 app.use('/quizes',quizesRoute);
 
