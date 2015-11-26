@@ -11,14 +11,16 @@ function Respuesta(respuesta){
   }else if (respuesta instanceof Array) {
     f = function(x){
       if(respuesta.length == x.length){ // si el tamaño de los array son iguales
-        // for(var i = 0; i < respuesta.length; i++){
-        //
-        // }
-
-        return true;
-      }else{ // si el tamaño de los array NO coinciden.
+        var correcta = 0;
+        for(var i = 0; i < respuesta.length; i++){
+          if(x[i] === respuesta[i])
+            correcta++;
+        }
+        if(correcta == respuesta.length)
+          return true;
         return false;
-      }
+      }// si el tamaño de los array NO coinciden.
+      return false;
     };
   }else  {
     f =  respuesta;
