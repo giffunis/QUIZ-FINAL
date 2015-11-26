@@ -3,8 +3,13 @@
 
 #### 1. Resume.
 
-A very simple example of the quiz game with [express-generator](http://expressjs.com/es/starter/generator.html) and [express-partials](https://www.npmjs.com/package/express-partial) but without DDBB. At this time, I created a Respuesta class
-that accept different parameters, and I created a Respuesta class too.
+A very simple example of the quiz game with [express-generator](http://expressjs.com/es/starter/generator.html) and [express-ejs-layouts](https://www.npmjs.com/package/express-ejs-layouts) but without DDBB. At this time, I created a Respuesta class
+that accept different parameters:
+
+* Number and Strings.
+* RegExp.
+* Function.
+* Array.
 
 #### 2. Requirements.
 
@@ -24,4 +29,4 @@ And to bring up the server:
 
 * My subject page. [Link](http://giffunis.github.io/stw.html)
 * My page personal page on github. [Link](http://giffunis.github.io/index.html)
-* Deployment (Heroku). [Link](https://quiz2-alu0100770551.herokuapp.com/)
+* Deployment (Heroku). [Link](https://quiz3-alu0100770551.herokuapp.com/)
