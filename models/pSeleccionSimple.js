@@ -7,8 +7,6 @@ function PSSimple(enunciado, arrayResp){
   this.arrayResp = arrayResp;
   this.entrada = '../../partials/preguntas/pSimple';
   this.tipo = "PSSimple";
-
-
 }
 
 
