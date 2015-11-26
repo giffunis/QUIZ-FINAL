@@ -23,7 +23,7 @@ function Quiz() {
     },
 
     { pregunta: new PSMultiple('¿Que animales son mamíferos?',['Ornitorrinco', 'Canguro', 'Ballena', 'Gato']),
-      respuesta: new Respuesta('Atenas')
+      respuesta: new Respuesta(['Ballena', 'Gato'])
     },
 
     { pregunta: new PLarga('Escriba una función JavaScript de nombre <tt>square</tt> '+

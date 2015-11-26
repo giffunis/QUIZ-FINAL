@@ -10,3 +10,10 @@ function PSMultiple(enunciado, arrayResp){
 }
 
 module.exports = PSMultiple;
+
+// var self = this;
+// EJS.renderFile(path, {options: options},
+//   function(err, html){
+//     if(err) throw err;
+//     self._HTML = html;
+//   });
