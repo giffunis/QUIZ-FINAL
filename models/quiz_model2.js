@@ -2,6 +2,8 @@ var AbstractQuiz = require('../models/abstract_quiz_model.js');
 var PCorta = require('../models/pCorta.js');
 var PLarga = require('../models/pLarga.js');
 var Respuesta = require('../models/respuesta.js');
+var PSSimple = require('../models/pSeleccionSimple.js');
+var PSMultiple = require('../models/pSeleccionMultiple.js');
 
 
 function Quiz() {
@@ -14,6 +16,14 @@ function Quiz() {
 
     { pregunta: new PLarga('¿Quien reinaba en España cuando se descubrió América?'),
       respuesta: new Respuesta(/\b(Isabel\s+y?\s*Fernando)|(Fernando\s+[ey]?\s*Isabel)|(reyes\s+cat[oó]licos)\b/i)
+    },
+
+    { pregunta: new PSSimple('¿Capital de Grecia?',['Madrid', 'Roma', 'Atenas']),
+      respuesta: new Respuesta('Atenas')
+    },
+
+    { pregunta: new PSMultiple('¿Que animales son mamíferos?',['Ornitorrinco', 'Canguro', 'Ballena', 'Gato']),
+      respuesta: new Respuesta('Atenas')
     },
 
     { pregunta: new PLarga('Escriba una función JavaScript de nombre <tt>square</tt> '+

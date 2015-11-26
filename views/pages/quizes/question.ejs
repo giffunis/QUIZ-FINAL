@@ -21,7 +21,13 @@
       <h3>Quiz: el juego de las preguntas</h3>
       <form method="get" action="/quizes/answer">
         <p>Pregunta: <%- pregunta.enunciado %></p>
-        <%- pregunta.entrada %>
+        <% if(pregunta.tipo === 'PLarga' || pregunta.tipo === 'PCorta'){ %>
+          <%- pregunta.entrada %>
+        <%}else if(pregunta.tipo === 'PSSimple'){ %>
+          <% include ../../partials/preguntas/pSimple %>
+        <% } else{ %>
+          <% include ../../partials/preguntas/pMultiple %>
+        <% } %>
         <input type="submit" value="Enviar">
       </form>
     </section>
