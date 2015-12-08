@@ -7,14 +7,14 @@ exports.home = function(req, res){
 
 /* GET quizes/question page. */
 exports.question = function(req,res) {
-  models.Quiz.findAll().success(function(quiz){
+  models.Quiz.findAll().then(function(quiz){
     res.render('pages/quizes/question', {pregunta: quiz[0].pregunta});
   });
 };
 
 /* GET quizes/answer page. */
 exports.answer = function(req, res) {
-  models.Quiz.findAll().success(function(quiz){
+  models.Quiz.findAll().then(function(quiz){
     var c = 'Incorrecto';
     if(req.query.respuesta === quiz[0].respuesta){
       c = 'Correcto';

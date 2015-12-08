@@ -16,8 +16,8 @@ exports.Quiz = Quiz; // exportar la definición de la tabla Quiz.
 
 // Crear e inicializar la tabla de preguntas.
 // Para ello se sincroniza las definiciones del modelo.
-sequelize.sync().success(function(){
-  Quiz.count().success(function (count){
+sequelize.sync().then(function(){
+  Quiz.count().then(function (count){
     if (count === 0) { // se inicializa si la tabla está vacía.
       Quiz.create({ pregunta: 'Capital de Italia',
                     respuesta: 'Roma'
