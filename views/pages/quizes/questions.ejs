@@ -18,12 +18,12 @@
     </nav>
 
     <section class="main" id="s1">
-      
+
       <h3>Preguntas de la BBDD</h3>
       <% if(respuesta != null){ %>
         <ul>
           <% for(var i = 0; i < respuesta.length; i++){ %>
-            <li> Pregunta <%= i + 1 %>: <a href="/quizes/questions/<%= i+1 %>"><%- respuesta[i].pregunta.enunciado %></a></li>
+            <li> Pregunta <%= i + 1 %>: <a href="/quizes/questions/<%= i+1 %>"><%- respuesta[i].pregunta %></a></li>
           <% } %>
         </ul>
       <% } %>
