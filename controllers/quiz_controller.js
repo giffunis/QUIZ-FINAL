@@ -1,5 +1,17 @@
 var models = require('../models/models.js');
 
+exports.load = function(req, res, next, quizId){
+  models.Quiz.findById(quizId).then(
+    function(quiz){
+      if (quiz) {
+        req.quiz = quiz;
+        next();
+      }else {
+        next(new Error('No existe quizId = ' + quizId));
+      }
+    }
+  ).catch(function(error){next(error);});
+};
 
 exports.home = function(req, res){
   res.render('pages/index', {title: 'Quiz'});
@@ -13,29 +25,14 @@ exports.index = function(req,res) {
 };
 
 exports.show = function(req, res){
-  models.Quiz.findById(req.params.quizId).then(function(quiz){
-    res.render('pages/quizes/show', {quiz: quiz});
-  });
+  res.render('pages/quizes/show', {quiz: req.quiz});
 };
 
 /* GET quizes/answer page. */
 exports.answer = function(req, res) {
-  models.Quiz.findById(req.params.quizId).then(function(quiz){
-    var c = 'Incorrecto';
-    if(req.query.respuesta === quiz.respuesta){
-      c = 'Correcto';
-    }
-    res.render('pages/quizes/answer', {quiz: quiz, respuesta: c});
-  });
+  var c = 'Incorrecto';
+  if(req.query.respuesta === req.quiz.respuesta){
+    c = 'Correcto';
+  }
+  res.render('pages/quizes/answer', {quiz: req.quiz, respuesta: c});
 };
-
-
-// exports.questions = function(req, res){
-//   var nQ = quiz.nQuestions();
-//   var salida = new Array(nQ);
-//   for(var i = 0; i < nQ; i++){
-//      salida[i] = quiz.getQuestion(i);
-//   }
-//   res.render('pages/quizes/questions', {respuesta: salida});
-// };
-//
