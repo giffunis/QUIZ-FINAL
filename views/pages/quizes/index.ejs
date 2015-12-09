@@ -20,10 +20,10 @@
     <section class="main" id="s1">
 
       <h3>Preguntas de la BBDD</h3>
-      <% if(preguntas != null){ %>
+      <% if(quizes != null){ %>
         <ul>
-          <% for(var i = 0; i < preguntas.length; i++){ %>
-            <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= preguntas[i].id %>"><%- preguntas[i].pregunta %></a></li>
+          <% for(var i = 0; i < quizes.length; i++){ %>
+            <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= quizes[i].id %>"><%- quizes[i].pregunta %></a></li>
           <% } %>
         </ul>
       <% } %>

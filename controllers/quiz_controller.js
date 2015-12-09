@@ -7,14 +7,14 @@ exports.home = function(req, res){
 
 /* GET quizes/question page. */
 exports.index = function(req,res) {
-  models.Quiz.findAll().then(function(quiz){
-    res.render('pages/quizes/index', {preguntas: quiz});
+  models.Quiz.findAll().then(function(quizes){
+    res.render('pages/quizes/index', {quizes: quizes});
   });
 };
 
 exports.show = function(req, res){
-  models.Quiz.findById(req.params.quizId).then(function(question){
-    res.render('pages/quizes/show', {pregunta: question});
+  models.Quiz.findById(req.params.quizId).then(function(quiz){
+    res.render('pages/quizes/show', {quiz: quiz});
   });
 };
 
@@ -22,7 +22,7 @@ exports.show = function(req, res){
 exports.answer = function(req, res) {
   models.Quiz.findById(req.params.quizId).then(function(quiz){
     var c = 'Incorrecto';
-    if(req.query.respuesta === quiz[0].respuesta){
+    if(req.query.respuesta === quiz.respuesta){
       c = 'Correcto';
     }
     res.render('pages/quizes/answer', {respuesta: c});

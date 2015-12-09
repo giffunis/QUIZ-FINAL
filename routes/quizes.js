@@ -10,6 +10,6 @@ quizesRoute.get('/',quizController.index);
 quizesRoute.get('/:quizId(\\d+)', quizController.show);
 
 /* GET quizes/answer page.*/
-quizesRoute.get('/answer', quizController.answer);
+quizesRoute.get('/:quizId(\\d+)/answer', quizController.answer);
 
 module.exports = quizesRoute;
