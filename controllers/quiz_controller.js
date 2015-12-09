@@ -37,8 +37,16 @@ exports.answer = function(req, res) {
   res.render('pages/quizes/answer', {quiz: req.quiz, respuesta: c});
 };
 
-/* GET quizes/create page.*/
-exports.create = function(req, res) {
+/* GET quizes/new page.*/
+exports.new = function(req, res) {
   var quiz = models.Quiz.build({pregunta: "Pregunta", respuesta: "Respuesta"});
   res.render('pages/quizes/new', {quiz: quiz});
+};
+
+/* POST quizes/create page.*/
+exports.create = function(req, res) {
+  var quiz = models.Quiz.build(req.body.quiz);
+  quiz.save({fields: ["pregunta", "respuesta"]}).then(function(){
+    res.redirect('/quizes');
+  });
 };
