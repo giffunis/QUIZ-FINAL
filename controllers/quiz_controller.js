@@ -13,8 +13,8 @@ exports.index = function(req,res) {
 };
 
 exports.show = function(req, res){
-  models.Quiz.findById(req.params.quizId).then(function(quiz){
-    res.render('pages/quizes/show', {quiz: quiz});
+  models.Quiz.findById(req.params.quizId).then(function(question){
+    res.render('pages/quizes/show', {pregunta: question});
   });
 };
 
@@ -22,7 +22,7 @@ exports.show = function(req, res){
 exports.answer = function(req, res) {
   models.Quiz.findById(req.params.quizId).then(function(quiz){
     var c = 'Incorrecto';
-    if(req.query.respuesta === quiz.respuesta){
+    if(req.query.respuesta === quiz[0].respuesta){
       c = 'Correcto';
     }
     res.render('pages/quizes/answer', {respuesta: c});
