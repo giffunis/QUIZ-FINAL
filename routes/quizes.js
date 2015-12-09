@@ -7,7 +7,7 @@ var quizController = require('../controllers/quiz_controller');
 quizesRoute.get('/',quizController.index);
 
 /* GET quizes/:id */
-quizesRoute.get('/:id', quizController.show);
+quizesRoute.get('/:quizId(\\d+)', quizController.show);
 
 /* GET quizes/answer page.*/
 quizesRoute.get('/answer', quizController.answer);

@@ -23,7 +23,7 @@
       <% if(preguntas != null){ %>
         <ul>
           <% for(var i = 0; i < preguntas.length; i++){ %>
-            <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= i+1 %>"><%- preguntas[i].pregunta %></a></li>
+            <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= preguntas[i].id %>"><%- preguntas[i].pregunta %></a></li>
           <% } %>
         </ul>
       <% } %>

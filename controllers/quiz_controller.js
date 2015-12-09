@@ -13,7 +13,7 @@ exports.index = function(req,res) {
 };
 
 exports.show = function(req, res){
-  models.Quiz.find(req.params.id).then(function(question){
+  models.Quiz.findById(req.params.quizId).then(function(question){
     res.render('pages/quizes/show', {pregunta: question});
   });
 };
