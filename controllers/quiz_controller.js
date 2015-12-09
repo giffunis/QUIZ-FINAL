@@ -25,7 +25,7 @@ exports.answer = function(req, res) {
     if(req.query.respuesta === quiz.respuesta){
       c = 'Correcto';
     }
-    res.render('pages/quizes/answer', {respuesta: c});
+    res.render('pages/quizes/answer', {quiz: quiz, respuesta: c});
   });
 };
 
