@@ -19,14 +19,12 @@
 
     <section class="main" id="s1">
 
-      <h3>Preguntas de la BBDD</h3>
-      <% if(respuesta != null){ %>
-        <ul>
-          <% for(var i = 0; i < respuesta.length; i++){ %>
-            <li> Pregunta <%= i + 1 %>: <a href="/quizes/questions/<%= i+1 %>"><%- respuesta[i].pregunta %></a></li>
-          <% } %>
-        </ul>
-      <% } %>
+      <h3>Quiz: el juego de las preguntas</h3>
+      <form method="get" action="/quizes/answer">
+        <p>Preguntas: <%- pregunta %></p>
+        <textarea name='respuesta' row='2' col='40' placeholder="Responda aquí" autofocus=""></textarea>
+        <input type="submit" value="Enviar">
+      </form>
 
     </section>
 

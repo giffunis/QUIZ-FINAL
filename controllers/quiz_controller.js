@@ -8,18 +8,14 @@ exports.home = function(req, res){
 /* GET quizes/question page. */
 exports.index = function(req,res) {
   models.Quiz.findAll().then(function(quiz){
-    res.render('pages/quizes/index', {pregunta: quiz[0].pregunta});
+    res.render('pages/quizes/index', {preguntas: quiz});
   });
 };
 
 exports.show = function(req, res){
-  try {
-    current = quiz.getQuestion(req.params.id - 1);
-    res.render('pages/quizes/question', {pregunta: current.pregunta});
-  }catch (e) {
-    res.render('pages/errors/error2', {message: "No existe esa pregunta"});
-  }
-
+  models.Quiz.find(req.params.id).then(function(question){
+    res.render('pages/quizes/show', {pregunta: question});
+  });
 };
 
 /* GET quizes/answer page. */
