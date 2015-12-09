@@ -9,7 +9,7 @@ exports.home = function(req, res){
 exports.index = function(req,res) {
   models.Quiz.findAll().then(function(quizes){
     res.render('pages/quizes/index', {quizes: quizes});
-  });
+  }).catch(function(error){next(error);});
 };
 
 exports.show = function(req, res){
