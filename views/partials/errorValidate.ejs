@@ -1,0 +1,10 @@
+<!-- views/partials/errorValidate.ejs -->
+
+<% if(errors.length) { %>
+  <span id="ErrorMsgs">
+    Corregir errores: <br>
+    <% for(var i in errors){ %>
+      <span> <%= errors[i].message %> </span><br>
+    <% } %>
+  </span>
+<% } %>
