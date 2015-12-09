@@ -1,7 +1,9 @@
 var express = require('express');
 var quizesRoute = express.Router();
-
 var quizController = require('../controllers/quiz_controller');
+
+/* Load the autoload */
+quizesRoute.param('quizId', quizController.load);
 
 /* GET quizes/ */
 quizesRoute.get('/',quizController.index);
