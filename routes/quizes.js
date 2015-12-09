@@ -14,4 +14,6 @@ quizesRoute.get('/:quizId(\\d+)', quizController.show);
 /* GET quizes/answer page.*/
 quizesRoute.get('/:quizId(\\d+)/answer', quizController.answer);
 
+/* GET quizes/create page.*/
+quizesRoute.get('/create', quizController.new);
 module.exports = quizesRoute;
