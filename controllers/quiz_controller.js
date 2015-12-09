@@ -6,10 +6,20 @@ exports.home = function(req, res){
 };
 
 /* GET quizes/question page. */
-exports.question = function(req,res) {
+exports.index = function(req,res) {
   models.Quiz.findAll().then(function(quiz){
-    res.render('pages/quizes/question', {pregunta: quiz[0].pregunta});
+    res.render('pages/quizes/index', {pregunta: quiz[0].pregunta});
   });
+};
+
+exports.show = function(req, res){
+  try {
+    current = quiz.getQuestion(req.params.id - 1);
+    res.render('pages/quizes/question', {pregunta: current.pregunta});
+  }catch (e) {
+    res.render('pages/errors/error2', {message: "No existe esa pregunta"});
+  }
+
 };
 
 /* GET quizes/answer page. */
@@ -33,12 +43,3 @@ exports.answer = function(req, res) {
 //   res.render('pages/quizes/questions', {respuesta: salida});
 // };
 //
-// exports.choosedQuestion = function(req, res){
-//   try {
-//     current = quiz.getQuestion(req.params.id - 1);
-//     res.render('pages/quizes/question', {pregunta: current.pregunta});
-//   }catch (e) {
-//     res.render('pages/errors/error2', {message: "No existe esa pregunta"});
-//   }
-//
-// };
