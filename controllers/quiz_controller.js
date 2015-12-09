@@ -20,9 +20,9 @@ exports.show = function(req, res){
 
 /* GET quizes/answer page. */
 exports.answer = function(req, res) {
-  models.Quiz.findAll().then(function(quiz){
+  models.Quiz.findById(req.params.quizId).then(function(quiz){
     var c = 'Incorrecto';
-    if(req.query.respuesta === quiz[0].respuesta){
+    if(req.query.respuesta === quiz.respuesta){
       c = 'Correcto';
     }
     res.render('pages/quizes/answer', {respuesta: c});
