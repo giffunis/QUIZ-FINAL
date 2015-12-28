@@ -11,7 +11,7 @@ router.get('/', quizController.home);
 /* GET login */
 router.get('/login', sessionController.new);
 /* POST login */
-
+router.post('login', sessionController.create);
 /* DELETE login */
 
 
