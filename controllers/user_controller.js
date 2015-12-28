@@ -14,6 +14,12 @@ exports.autenticar = function(login, password, callback){
   }
 };
 
+exports.new = function(req,res){
+  var errors = req.session.errors || {};
+  req.session.errors = {};
+  res.render('pages/user/new', {errors: errors});
+};
+
 exports.create = function(req, res){
   var user = models.User.build(
     {
