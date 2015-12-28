@@ -2,7 +2,7 @@ var express = require('express');
 var quizesRoute = express.Router();
 var quizController = require('../controllers/quiz_controller');
 var commentController = require('../controllers/comment_controller');
-
+var sessionController = require('../controllers/session_controller');
 /* Load the autoload */
 quizesRoute.param('quizId', quizController.load);
 
@@ -16,19 +16,19 @@ quizesRoute.get('/:quizId(\\d+)', quizController.show);
 quizesRoute.get('/:quizId(\\d+)/answer', quizController.answer);
 
 /* GET quizes/new page.*/
-quizesRoute.get('/new', quizController.new);
+quizesRoute.get('/new', sessionController.loginRequired, quizController.new);
 
 /* POST quizes/create page.*/
-quizesRoute.post('/create', quizController.create);
+quizesRoute.post('/create', sessionController.loginRequired, quizController.create);
 
 /* GET quizes/:id/edit */
-quizesRoute.get('/:quizId(\\d+)/edit', quizController.edit);
+quizesRoute.get('/:quizId(\\d+)/edit', sessionController.loginRequired, quizController.edit);
 
 /* PUT quizes/:id/ */
-quizesRoute.put('/:quizId(\\d+)', quizController.update);
+quizesRoute.put('/:quizId(\\d+)', sessionController.loginRequired, quizController.update);
 
 /* DELETE quizes/:id/ */
-quizesRoute.delete('/:quizId(\\d+)', quizController.destroy);
+quizesRoute.delete('/:quizId(\\d+)', sessionController.loginRequired, quizController.destroy);
 
 
 // -------------------------- RUTAS DE LOS COMENTARIOS -------------------------
