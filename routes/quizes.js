@@ -26,4 +26,7 @@ quizesRoute.get('/:quizId(\\d+)/edit', quizController.edit);
 /* PUT quizes/:id/ */
 quizesRoute.put('/:quizId(\\d+)', quizController.update);
 
+/* DELETE quizes/:id/ */
+quizesRoute.delete('/:quizId(\\d+)', quizController.destroy);
+
 module.exports = quizesRoute;
