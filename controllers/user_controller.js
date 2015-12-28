@@ -35,5 +35,7 @@ exports.create = function(req, res){
         res.redirect('/login');
       });
     }
-  }).catch();
+  }).catch(function(error){
+    next(error);
+  });
 };
