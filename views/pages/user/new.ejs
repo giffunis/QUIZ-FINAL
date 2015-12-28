@@ -3,24 +3,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include ../partials/head %>
+    <% include ../../partials/head %>
 </head>
 <body class="container">
 
   <div id="page-wrap">
 
     <header class="main" id="h1">
-      <% include ../partials/header %>
+      <% include ../../partials/header %>
     </header>
 
     <nav class="main" id="n1" role="navigation">
-      <% include ../partials/nav %>
+      <% include ../../partials/nav %>
     </nav>
 
     <section class="main" id="s1">
-      <% include ../partials/errorValidate %>
+      <% include ../../partials/errorValidate %>
       <h2>Create a new user:</h2>
-      <form method="post" action="/createUser">
+      <form method="post" action="/user/new">
         <div class="field">
           <label for="username">Username:</label><br>
           <input type="text" id="username" name="username" size="30">
@@ -41,7 +41,7 @@
     </section>
 
     <footer class="main" id="f1">
-        <% include ../partials/footer %>
+        <% include ../../partials/footer %>
     </footer>
 
   </div> <!-- id="page-wrap-->"
