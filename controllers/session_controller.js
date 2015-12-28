@@ -13,7 +13,7 @@ exports.create = function(req,res){
   userController.autenticar(login,password, function(error, user){
     if(error){
       req.session.errors = [{"message": 'Se ha producido un error: ' + error}];
-      redirect('/login');
+      res.redirect('/login');
       return;
     }
     req.session.user = {id: user.id, username: user.username};
