@@ -34,9 +34,9 @@ quizesRoute.delete('/:quizId(\\d+)', quizController.destroy);
 // -------------------------- RUTAS DE LOS COMENTARIOS -------------------------
 
 /* GET quizes/:id/comments/new */
-quizesRoute.get('/quizId(\\d+)/comments/new', commentController.new);
+quizesRoute.get('/:quizId(\\d+)/comments/new', commentController.new);
 
 /* POST quizes/:id/comments */
-quizesRoute.post('/quizId(\\d+)/comments', commentController.create);
+// quizesRoute.post('/quizId(\\d+)/comments', commentController.create);
 
 module.exports = quizesRoute;
