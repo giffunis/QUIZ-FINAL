@@ -20,5 +20,8 @@ quizesRoute.get('/new', quizController.new);
 /* POST quizes/create page.*/
 quizesRoute.post('/create', quizController.create);
 
+/* GET quizes/:id/edit */
+quizesRoute.get(':quizId(\\d+)/edit', quizController.edit);
+
 
 module.exports = quizesRoute;
