@@ -56,3 +56,8 @@ exports.create = function(req, res) {
     }
   });
 };
+
+exports.edit = function(req,res){
+  var quiz = req.quiz; //autoload
+  res.render('pages/quizes/edit', {quiz: quiz, errors: []});
+};
