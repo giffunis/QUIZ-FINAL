@@ -31,7 +31,7 @@ app.use(methodOverride('_method'));
 
 // Helpers dinamic
 app.use(function(req,res,next){
-  if(!req.path.match(/\/login|\/logout/)){
+  if(!req.path.match(/\/login|\/logout|\/user/)){
     req.session.redir = req.path;
   }
   // para hacer visible a las listas la variable req.session

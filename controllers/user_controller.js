@@ -3,15 +3,15 @@ var models = require('../models/models.js');
 // var users = { admin: {id:1, username:"admin", password:"1234"}};
 
 exports.autenticar = function(login, password, callback){
-  if (users[login]) {
-    if (password == users[login].password) {
-      callback(null, users[login]);
+  models.User.find({where:{username: login}}).then(function(user){
+    if (user.password == password) {
+      callback(null, user);
     } else {
       callback(new Error('Password erróneo'));
     }
-  } else {
-    callback(new Error('No existe ese usuario'));
-  }
+  }).catch(function(){
+    next(new Error('El nombre de usuario no existe'));
+  });
 };
 
 exports.new = function(req,res){
