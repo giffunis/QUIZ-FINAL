@@ -23,5 +23,7 @@ quizesRoute.post('/create', quizController.create);
 /* GET quizes/:id/edit */
 quizesRoute.get(':quizId(\\d+)/edit', quizController.edit);
 
+/* PUT quizes/:id/edit */
+quizesRoute.put(':quizId(\\d+)', quizController.update);
 
 module.exports = quizesRoute;
