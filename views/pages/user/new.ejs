@@ -1,0 +1,50 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+  <div id="page-wrap">
+
+    <header class="main" id="h1">
+      <% include ../partials/header %>
+    </header>
+
+    <nav class="main" id="n1" role="navigation">
+      <% include ../partials/nav %>
+    </nav>
+
+    <section class="main" id="s1">
+      <% include ../partials/errorValidate %>
+      <h2>Create a new user:</h2>
+      <form method="post" action="/createUser">
+        <div class="field">
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" name="username" size="30">
+        </div>
+
+        <div class="field">
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" name="password" size="30">
+        </div>
+
+        <div class="actions">
+          <input type="submit" name="commit" value="Login">
+        </div>
+      </form>
+
+
+
+    </section>
+
+    <footer class="main" id="f1">
+        <% include ../partials/footer %>
+    </footer>
+
+  </div> <!-- id="page-wrap-->"
+
+</body>
+</html>
