@@ -37,6 +37,6 @@ quizesRoute.delete('/:quizId(\\d+)', quizController.destroy);
 quizesRoute.get('/:quizId(\\d+)/comments/new', commentController.new);
 
 /* POST quizes/:id/comments */
-// quizesRoute.post('/quizId(\\d+)/comments', commentController.create);
+quizesRoute.post('/:quizId(\\d+)/comments', commentController.create);
 
 module.exports = quizesRoute;
