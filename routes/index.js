@@ -13,6 +13,7 @@ router.get('/login', sessionController.new);
 /* POST login */
 router.post('/login', sessionController.create);
 /* DELETE login */
+router.delete('/logout', sessionController.destroy);
 
 
 module.exports = router;

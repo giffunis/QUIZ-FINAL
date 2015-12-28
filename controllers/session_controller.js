@@ -20,3 +20,8 @@ exports.create = function(req,res){
     res.redirect(req.session.redir.toString());
   });
 };
+
+exports.destroy = function(req, res){
+  delete req.session.user;
+  res.redirect(req.session.redir.toString());
+};
