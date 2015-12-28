@@ -21,9 +21,9 @@ quizesRoute.get('/new', quizController.new);
 quizesRoute.post('/create', quizController.create);
 
 /* GET quizes/:id/edit */
-quizesRoute.get(':quizId(\\d+)/edit', quizController.edit);
+quizesRoute.get('/:quizId(\\d+)/edit', quizController.edit);
 
 /* PUT quizes/:id/ */
-quizesRoute.put(':quizId(\\d+)', quizController.update);
+quizesRoute.put('/:quizId(\\d+)', quizController.update);
 
 module.exports = quizesRoute;
