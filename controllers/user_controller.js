@@ -10,7 +10,7 @@ exports.autenticar = function(login, password, callback){
       callback(new Error('Password erróneo'));
     }
   }).catch(function(){
-    next(new Error('El nombre de usuario no existe'));
+    callback(new Error('El nombre de usuario no existe o está vacío'));
   });
 };
 
