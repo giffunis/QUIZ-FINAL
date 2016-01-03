@@ -21,10 +21,12 @@ exports.home = function(req, res){
 };
 
 /* GET quizes/question page. */
-exports.index = function(req,res) {
+exports.index = function(req,res,next) {
   models.Quiz.findAll().then(function(quizes){
     res.render('pages/quizes/index', {quizes: quizes});
-  }).catch(function(error){next(error);});
+  }).catch(function(error){
+    next(new Error(error));
+  });
 };
 
 exports.show = function(req, res){
@@ -42,13 +44,14 @@ exports.answer = function(req, res) {
 
 /* GET quizes/new page.*/
 exports.new = function(req, res) {
-  var quiz = models.Quiz.build({pregunta: "", respuesta: ""});
+  var quiz = models.Quiz.build({pregunta: "", respuesta: "", UserId: ""});
   res.render('pages/quizes/new', {quiz: quiz, errors:[]});
 };
 
 /* POST quizes/create page.*/
 exports.create = function(req, res) {
   var quiz = models.Quiz.build(req.body.quiz);
+
   quiz.validate().then(function(err){
     if(err){
       res.render('pages/quizes/new', {quiz: quiz, errors: err.errors});
