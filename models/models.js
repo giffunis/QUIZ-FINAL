@@ -43,15 +43,16 @@ exports.User = User;
 
 // Crear e inicializar la tabla de preguntas.
 // Para ello se sincroniza las definiciones del modelo.
-sequelize.sync().then(function(){
-  Quiz.count().then(function (count){
-    if (count === 0) { // se inicializa si la tabla está vacía.
-      Quiz.create({ pregunta: 'Capital de Italia',
-                    respuesta: 'Roma'
-                  });
-      Quiz.create({ pregunta: 'Capital de España',
-                    respuesta: 'Madrid'
-                  });
-    }
-  });
-});
+sequelize.sync();
+// .then(function(){
+//   Quiz.count().then(function (count){
+//     if (count === 0) { // se inicializa si la tabla está vacía.
+//       Quiz.create({ pregunta: 'Capital de Italia',
+//                     respuesta: 'Roma'
+//                   });
+//       Quiz.create({ pregunta: 'Capital de España',
+//                     respuesta: 'Madrid'
+//                   });
+//     }
+//   });
+// });
