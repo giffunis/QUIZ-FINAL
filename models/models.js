@@ -33,6 +33,8 @@ var User = sequelize.import(path.join(__dirname,'user'));
 
 Comment.belongsTo(Quiz);
 Quiz.hasMany(Comment);
+Quiz.belongsTo(User);
+User.hasMany(Quiz);
 
 exports.Quiz = Quiz; // exportar la definición de la tabla Quiz.
 exports.Comment = Comment;
