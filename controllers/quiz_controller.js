@@ -30,7 +30,9 @@ exports.index = function(req,res,next) {
 };
 
 exports.show = function(req, res){
-  res.render('pages/quizes/show', {quiz: req.quiz, errors: []});
+  models.User.find({where:{id: req.quiz.UserId}}).then(function(usuario){
+    res.render('pages/quizes/show', {quiz: req.quiz, usuario: usuario.username, errors: []});
+  });
 };
 
 /* GET quizes/answer page. */
@@ -56,7 +58,7 @@ exports.create = function(req, res) {
     if(err){
       res.render('pages/quizes/new', {quiz: quiz, errors: err.errors});
     }else {
-      quiz.save({fields: ["pregunta", "respuesta"]}).then(function(){
+      quiz.save({fields: ["pregunta", "respuesta", "UserId"]}).then(function(){
         res.redirect('/quizes');
       });
     }

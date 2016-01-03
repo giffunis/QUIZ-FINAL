@@ -19,6 +19,7 @@ router.delete('/logout', sessionController.destroy);
 
 router.get('/user/new', userController.new);
 router.post('/user/new', userController.create);
+router.get('/user/show', userController.show);
 
 
 module.exports = router;

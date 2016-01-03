@@ -39,3 +39,11 @@ exports.create = function(req, res){
     next(error);
   });
 };
+
+exports.show = function(req, res, next){
+  models.Quiz.findAll({where:{UserId: req.session.user.id}}).then(function(quizes){
+    res.render('pages/user/show', {quizes: quizes, errors: err.errors});
+  }).catch(function(){
+    next(new Error('Ups!, no hemos encontrado tu perfil'));
+  });
+};

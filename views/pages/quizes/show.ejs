@@ -24,6 +24,7 @@
         <p>Preguntas: <%- quiz.pregunta %></p>
         <textarea name='respuesta' row='2' col='40' placeholder="Responda aquí" autofocus=""></textarea>
         <input type="submit" value="Enviar">
+        <p>Pregunta del usuario: <%= usuario %></p>
       </form><br>
 
       <a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a><br>
