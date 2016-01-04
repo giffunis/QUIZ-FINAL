@@ -3,7 +3,7 @@
   <span class="right"><a href="/login">Login</a></span>
 <% } else{ %>
   <span>
-    <%= session.user.username %>
+    <a href="/user/show"><%= session.user.username %></a>
     <form method="post" action="/logout?_method=delete">
       <button type="submit" onClick="return confirm('¿Seguro de que quieres salir?');">Salir</button>
     </form>
