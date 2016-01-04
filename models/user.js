@@ -9,6 +9,9 @@ module.exports = function(sequelize, DataTypes){
     password: {
       type: DataTypes.STRING,
       validate: { notEmpty: {msg: "Falta la contraseña"}}
+    },
+    bestScore: {
+      type: DataTypes.INTEGER
     }
   });
 };
