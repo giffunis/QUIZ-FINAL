@@ -48,3 +48,9 @@ exports.show = function(req, res, next){
     next(new Error(error));
   });
 };
+
+exports.index = function(req, res){
+  models.User.findAll().then(function(users){
+    res.render('pages/user/index', {users: users});
+  });
+};
