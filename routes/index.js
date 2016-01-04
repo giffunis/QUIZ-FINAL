@@ -16,7 +16,7 @@ router.post('/login', sessionController.create);
 /* DELETE login */
 router.delete('/logout', sessionController.destroy);
 
-
+router.get('/user', userController.index);
 router.get('/user/new', userController.new);
 router.post('/user/new', userController.create);
 router.get('/user/show', sessionController.loginRequired, userController.show);
