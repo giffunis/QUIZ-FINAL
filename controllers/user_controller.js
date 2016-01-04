@@ -41,7 +41,7 @@ exports.create = function(req, res){
 };
 
 exports.show = function(req, res, next){
-  models.Quiz.findAll().then(function(quizes){
+  models.Quiz.findAll({where:{UserId: Number(req.session.user.id)}}).then(function(quizes){
     res.render('pages/user/show', {quizes: quizes});
   }).catch(function(error){
     next(new Error(error));
