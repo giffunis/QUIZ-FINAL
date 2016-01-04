@@ -51,6 +51,6 @@ exports.show = function(req, res, next){
 
 exports.index = function(req, res){
   models.User.findAll().then(function(users){
-    res.render('pages/user/index', {users: users});
+    res.render('pages/user/index', {usuarios: users});
   });
 };
