@@ -41,9 +41,9 @@ exports.create = function(req, res){
 };
 
 exports.show = function(req, res, next){
-  models.Quiz.findAll({where:{UserId: '1'}}).then(function(quizes){
-    res.render('pages/user/show', {quizes: quizes, errors: err.errors});
-  }).catch(function(){
-    next(new Error('Ups!, no hemos encontrado tu perfil'));
+  models.Quiz.findAll().then(function(quizes){
+    res.render('pages/user/show', {quizes: quizes});
+  }).catch(function(error){
+    next(new Error(error));
   });
 };

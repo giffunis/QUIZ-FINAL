@@ -18,11 +18,10 @@
     </nav>
 
     <section class="main" id="s1">
-      <% include ../../partials/errorValidate %>
       <h3>Tus preguntas:</h3>
       <% if(quizes != null){ %>
         <ul>
-        <% for(var i = 0; i < quizes.length(); i++){ %>
+        <% for(var i = 0; i < quizes.length; i++){ %>
           <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= quizes[i].id %>"><%- quizes[i].pregunta %></a>
         <% } %>
       </ul>
