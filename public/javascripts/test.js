@@ -37,4 +37,4 @@ function reloj(){
     }
     contador_s++;
   },1000);
-};
+}
