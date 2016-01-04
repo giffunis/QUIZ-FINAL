@@ -24,7 +24,7 @@ exports.create = function(req,res){
       res.redirect('/login');
       return;
     }
-    req.session.user = {id: user.id, username: user.username, score: 0};
+    req.session.user = {id: user.id, username: user.username, bestScore: 0,score: 0};
     res.redirect(req.session.redir.toString());
   });
 };
