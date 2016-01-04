@@ -14,8 +14,8 @@ module.exports = function(sequelize, DataTypes){
                     }).catch(function(error){
                       next(error);
                     });
+                  }
                 }
-      }
     },
     password: {
       type: DataTypes.STRING,
