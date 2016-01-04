@@ -27,7 +27,7 @@ exports.create = function(req, res){
       password: req.body.user.password,
       bestScore: 0
     });
-
+  
   user.validate().then(function(err){
     if(err){
       res.render('pages/user/new', {user: user, errors: err.errors});
