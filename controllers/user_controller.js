@@ -24,7 +24,8 @@ exports.create = function(req, res){
   var user = models.User.build(
     {
       username: req.body.user.username,
-      password: req.body.user.password
+      password: req.body.user.password,
+      bestScore: 0
     });
 
   user.validate().then(function(err){
