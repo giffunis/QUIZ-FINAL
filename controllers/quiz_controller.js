@@ -58,7 +58,7 @@ exports.create = function(req, res) {
     if(err){
       res.render('pages/quizes/new', {quiz: quiz, errors: err.errors});
     }else {
-      quiz.save({fields: ["pregunta", "respuesta", "UserId"]}).then(function(){
+      quiz.save({fields: ["pregunta", "respuesta", "UserId", "tipo"]}).then(function(){
         res.redirect('/quizes');
       });
     }
