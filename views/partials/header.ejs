@@ -1,13 +1,2 @@
 <!-- views/partials/header.ejs -->
-<% if(!session.user){ %>
-  <span class="right"><a href="/login">Login</a></span>
-<% } else{ %>
-  <span>
-    <a href="/user/show"><%= session.user.username %></a>
-    <p>Best Score: <%= session.user.bestScore %></p>
-    <form method="post" action="/logout?_method=delete">
-      <button type="submit" onClick="return confirm('¿Seguro de que quieres salir?');">Salir</button>
-    </form>
-  </span>
-<% } %>
 <h2>Quiz<span>: el juego de las preguntas</span></h2>
