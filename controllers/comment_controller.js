@@ -39,3 +39,12 @@ exports.create = function(req, res){
     next(error);
   });
 };
+
+exports.publish = function(req, res, next){
+  req.comment.publicado = true;
+  req.comment.save({fields:["publicado"]}).then(function(){
+    res.redirect('/quizes/' + req.params.quizId);
+  }).catch(function(error){
+    next(error);
+  });
+};
