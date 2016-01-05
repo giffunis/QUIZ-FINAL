@@ -1,6 +1,7 @@
 $(function() {
   $( "#btnStart" ).click(function() {
     $("#preguntas").hide();
+    $("#pregunta").show();
     reloj();
   });
 
