@@ -35,7 +35,14 @@
           <div class="col-md-6">
             <p><strong>Comentarios:</strong></p>
             <% for (i in quiz.Comments){ %>
-              <p>- <%= quiz.Comments[i].texto %> </p>
+              <% if(quiz.Comments[i].publicado){ %>
+                <p>- <%= quiz.Comments[i].texto %> </p>
+              <% }else if(session.user){ %>
+                <% if(session.user.username == usuario){ %>
+                  <p>- <%= quiz.Comments[i].texto %> </p>
+                  <a href="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[i].id %>/publish"><button>Publicar</button></a>
+                <% } %>
+              <% } %>
             <% } %>
             <a href="/quizes/<%= quiz.id %>/comments/new"><button class="btn btn-info">Nuevo comentario</button></a><br>
           </div>
