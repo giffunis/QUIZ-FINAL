@@ -4,7 +4,7 @@
   <span id="ErrorMsgs">
     Corregir errores: <br>
     <% for(var i in errors){ %>
-      <span> <%= errors[i].message %> </span><br>
+      <div class="alert alert-warning" role="alert"> <%= errors[i].message %> </div>
     <% } %>
   </span>
 <% } %>
