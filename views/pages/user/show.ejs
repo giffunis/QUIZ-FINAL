@@ -16,20 +16,31 @@
     <% include ../../partials/nav %>
 
     <section class="main" id="s1">
-      <h3>Tus preguntas:</h3>
-      <% if(quizes != null){ %>
-        <ul>
-        <% for(var i = 0; i < quizes.length; i++){ %>
-          <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= quizes[i].id %>"><%- quizes[i].pregunta %></a>
-            <a href="/quizes/<%= quizes[i].id %>/edit"><button>editar</button></a>
-            <form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">
-              <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar</button>
-            </form>
-          </li>
+      <div class="container-fluid">
+        <div class="row">
+          <h3>Tus preguntas:</h3>
+        </div>
+        <% if(quizes != null){ %>
+          <% for(var i = 0; i < quizes.length; i++){ %>
+            <div class="row">
+              <div class="col-md-3">
+                Pregunta <%= i + 1 %>: <a href="/quizes/<%= quizes[i].id %>"><%- quizes[i].pregunta %></a>
+              </div>
+              <div class="col-md-1">
+                <a href="/quizes/<%= quizes[i].id %>/edit"><button class="btn btn-warning">editar</button></a>
+              </div>
+              <div class="col-md-1">
+                <form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">
+                  <button type="submit" class="btn btn-danger" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">borrar</button>
+                </form>
+              </div>
+            </div><br>
+          <% } %>
         <% } %>
-      </ul>
-      <% } %>
-    <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
+      </div>
+
+    <a href="/quizes/new"><button type="button" class="btn btn-primary">Crear pregunta</button></a>
+
     </section>
 
     <footer class="main" id="f1">
