@@ -36,8 +36,9 @@ quizesRoute.delete('/:quizId(\\d+)', sessionController.loginRequired, quizContro
 
 /* GET quizes/:id/comments/new */
 quizesRoute.get('/:quizId(\\d+)/comments/new', sessionController.loginRequired, commentController.new);
-
 /* POST quizes/:id/comments */
 quizesRoute.post('/:quizId(\\d+)/comments', sessionController.loginRequired, commentController.create);
+/* PUT quizes/:id/comments */
+quizesRoute.get('/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish);
 
 module.exports = quizesRoute;
