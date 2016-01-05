@@ -1,0 +1,43 @@
+<!-- views/pages/quizes/question.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../../partials/head %>
+</head>
+<body class="container">
+
+  <div id="page-wrap">
+
+    <header class="main" id="h1">
+      <% include ../../partials/header %>
+    </header>
+
+    <% include ../../partials/nav %>
+
+    <section class="main" id="s1">
+      <div class="container-fluid">
+        <div class="row">
+          <h3>Preguntas de <%= user %>:</h3>
+        </div>
+        <% if(quizes != null){ %>
+          <% for(var i = 0; i < quizes.length; i++){ %>
+            <div class="row">
+              <div class="col-md-3">
+                Pregunta <%= i + 1 %>: <a href="/quizes/<%= quizes[i].id %>"><%- quizes[i].pregunta %></a>
+              </div>
+            </div><br>
+          <% } %>
+        <% } %>
+      </div>
+
+    </section>
+
+    <footer class="main" id="f1">
+        <% include ../../partials/footer %>
+    </footer>
+
+  </div> <!-- id="page-wrap-->
+
+</body>
+</html>
