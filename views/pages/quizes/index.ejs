@@ -13,9 +13,7 @@
       <% include ../../partials/header %>
     </header>
 
-    <nav class="main" id="n1" role="navigation">
-      <% include ../../partials/nav %>
-    </nav>
+    <% include ../../partials/nav %>
 
     <section class="main" id="s1">
       <h3>Preguntas de la BBDD</h3>
@@ -27,7 +25,7 @@
         </ul>
       <% } %>
       <% if(session.user){ %>
-        <a href="/quizes/new"><button type="button">Crear pregunta</button></a>        
+        <a href="/quizes/new"><button type="button">Crear pregunta</button></a>
       <% } %>
     </section>
 
