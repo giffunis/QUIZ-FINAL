@@ -20,7 +20,7 @@
       <% if(usuarios != null){ %>
         <ul>
         <% for(var i = 0; i < usuarios.length; i++){ %>
-          <li><a href="#"><%= usuarios[i].username %></a> Puntuación: <%= usuarios[i].bestScore %></li>
+          <li><a href="/user/<%= usuarios[i].id %>/show"><%= usuarios[i].username %></a> Puntuación: <%= usuarios[i].bestScore %></li>
         <% } %>
       </ul>
       <% } %>

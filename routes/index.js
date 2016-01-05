@@ -24,7 +24,7 @@ router.get('/user', userController.index);
 router.get('/user/new', userController.new);
 router.post('/user/new', userController.create);
 router.get('/user/show', sessionController.loginRequired, userController.show);
-router.get('/user/show/:userId(\\d+)', sessionController.loginRequired, userController.perfil);
+router.get('/user/:userId(\\d+)/show', sessionController.loginRequired, userController.perfil);
 
 // ------------------------------ TEST ROUTES -------------------------------
 router.get('/test', testController.home);
