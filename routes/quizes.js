@@ -5,6 +5,7 @@ var commentController = require('../controllers/comment_controller');
 var sessionController = require('../controllers/session_controller');
 /* Load the autoload */
 quizesRoute.param('quizId', quizController.load);
+quizesRoute.param('commentId', commentController.load);
 
 /* GET quizes/ */
 quizesRoute.get('/',quizController.index);
