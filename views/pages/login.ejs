@@ -17,24 +17,32 @@
 
     <section class="main" id="s1">
       <% include ../partials/errorValidate %>
-      <h2>Login</h2>
-      <form method="post" action="/login">
-        <div class="field">
-          <label for="login">Login:</label><br>
-          <input type="text" id="login" name="login" size="30">
-        </div>
 
-        <div class="field">
-          <label for="password">Password:</label><br>
-          <input type="password" id="password" name="password" size="30">
-        </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <h2>Login</h2>
+            <form method="post" action="/login">
+              <div class="field">
+                <label for="login">Login:</label><br>
+                <input type="text" id="login" name="login" size="30">
+              </div>
 
-        <div class="actions">
-          <input type="submit" name="commit" value="Login">
-        </div>
-      </form>
+              <div class="field">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" size="30">
+              </div>
+              <br>
+              <div class="actions">
+                <a href="/user/new">Crear un nuevo usuario</a> 
+                <button type="submit" name="commit" class="btn btn-primary">Login</button>
 
-      <a href="/user/new">Crear un nuevo usuario</a>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
 
     </section>
 
