@@ -2,6 +2,11 @@
 
 <label for="preg" class="rem">Pregunta:</label>
 <input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="Pregunta"><br>
+<label for="tipo" class="rem">Tipo:</label>
+<select class="" name="quiz[tipo]">
+  <option value="../../partials/preguntas/pCorta">Pregunta Corta</option>
+  <option value="../../partials/preguntas/pLarga">Pregunta Larga</option>
+</select>
 <label for="resp" class="rem">Respuesta:</label>
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" placeholder="Respuesta"><br>
 <input type="hidden" id="id" name="quiz[UserId]" value="<%= session.user.id %>"/><br>
