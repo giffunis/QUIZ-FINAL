@@ -6,7 +6,7 @@ var userController = require('../controllers/user_controller');
 var testController = require('../controllers/test_controller');
 
 /* Load the autoload */
-router.param('quizId', quizController.load);
+router.param('userId', userController.load);
 
 /* GET home page. */
 router.get('/', quizController.home);

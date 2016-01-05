@@ -67,3 +67,7 @@ exports.index = function(req, res){
     res.render('pages/user/index', {usuarios: users});
   });
 };
+
+exports.perfil = function(req, res){
+  res.render('pages/user/perfil', {user: req.user});
+};
