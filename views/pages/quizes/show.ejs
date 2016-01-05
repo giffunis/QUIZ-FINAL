@@ -39,7 +39,11 @@
                 <p>- <%= quiz.Comments[i].texto %> </p>
               <% }else if(session.user){ %>
                 <% if(session.user.username == usuario){ %>
-                  - <%= quiz.Comments[i].texto %> <a href="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[i].id %>/publish"><button class="btn btn-warning">Publicar</button></a><br>
+                  - <%= quiz.Comments[i].texto %>
+                  <form method="post" action="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[i].id %>/publish?_method=put" id="logout">
+                    <button type="submit" class="btn btn-warning">Publicar</button>
+                  </form>
+                  
                 <% } %>
               <% } %>
             <% } %>

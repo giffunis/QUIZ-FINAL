@@ -39,6 +39,6 @@ quizesRoute.get('/:quizId(\\d+)/comments/new', sessionController.loginRequired, 
 /* POST quizes/:id/comments */
 quizesRoute.post('/:quizId(\\d+)/comments', sessionController.loginRequired, commentController.create);
 /* PUT quizes/:id/comments */
-quizesRoute.get('/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish);
+quizesRoute.put('/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.loginRequired, commentController.publish);
 
 module.exports = quizesRoute;
