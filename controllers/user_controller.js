@@ -68,6 +68,10 @@ exports.index = function(req, res){
   });
 };
 
-exports.perfil = function(req, res){
-  res.render('pages/user/perfil', {user: req.user});
+exports.perfil = function(req, res, next){
+  models.Quiz.findAll({where:{UserId: Number(req.user.id)}}).then(function(quizes){
+    res.render('pages/user/perfil', {user: req.user.username, quizes: quizes});
+  }).catch(function(error){
+    next(new Error(error));
+  });
 };
