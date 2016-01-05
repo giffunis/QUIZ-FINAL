@@ -1,14 +1,21 @@
 <!-- views/partials/_form.ejs -->
 
-<label for="preg" class="rem">Pregunta:</label>
-<input type="text" id="preg" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="Pregunta"><br>
-<label for="tipo" class="rem">Tipo:</label>
-<select class="" name="quiz[tipo]">
-  <option value="../../partials/preguntas/pCorta">Pregunta Corta</option>
-  <option value="../../partials/preguntas/pLarga">Pregunta Larga</option>
-</select>
-<label for="resp" class="rem">Respuesta:</label>
-<input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta %>" placeholder="Respuesta"><br>
+<div class="form-group">
+    <label for="preg" class="rem">Pregunta:</label>
+    <input type="text" id="preg" class="form-control" name="quiz[pregunta]" value="<%= quiz.pregunta %>" placeholder="Pregunta">
+</div>
+<div class="form-group">
+  <label for="tipo" class="rem">Tipo:</label>
+  <select class="form-control" name="quiz[tipo]">
+    <option value="../../partials/preguntas/pCorta">Pregunta Corta</option>
+    <option value="../../partials/preguntas/pLarga">Pregunta Larga</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="resp" class="rem">Respuesta:</label>
+  <input type="text" id="resp" class="form-control" name="quiz[respuesta]" value="<%= quiz.respuesta %>" placeholder="Respuesta"><br>
+</div>
 <input type="hidden" id="id" name="quiz[UserId]" value="<%= session.user.id %>"/><br>
-<a href="/quizes"><button type="button">Cancelar</button></a>
-<input type="submit" value="Guardar">
+
+<a href="/quizes"><button type="button" class="btn btn-default">Cancelar</button></a>
+<button type="submit" class="btn btn-default">Guardar</button>
