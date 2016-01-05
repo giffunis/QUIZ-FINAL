@@ -1,6 +1,19 @@
 var models = require('../models/models.js');
 
-// var users = { admin: {id:1, username:"admin", password:"1234"}};
+exports.load = function(req, res, next, userId){
+  models.User.find({
+    where: { id: Number(userId)}
+  }).then(
+    function(user){
+      if (user) {
+        req.user = user;
+        next();
+      }else {
+        next(new Error('No existe userId = ' + userId));
+      }
+    }
+  ).catch(function(error){next(error);});
+};
 
 exports.autenticar = function(login, password, callback){
   models.User.find({where:{username: login}}).then(function(user){
@@ -27,7 +40,7 @@ exports.create = function(req, res){
       password: req.body.user.password,
       bestScore: 0
     });
-  
+
   user.validate().then(function(err){
     if(err){
       res.render('pages/user/new', {user: user, errors: err.errors});
