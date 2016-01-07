@@ -7,6 +7,7 @@ var testController = require('../controllers/test_controller');
 
 /* Load the autoload */
 router.param('userId', userController.load);
+router.param('quizId', quizController.load);
 
 /* GET home page. */
 router.get('/', quizController.home);
@@ -28,5 +29,6 @@ router.get('/user/:userId(\\d+)/show', sessionController.loginRequired, userCont
 
 // ------------------------------ TEST ROUTES -------------------------------
 router.get('/test', testController.home);
+router.get('/test/:quizId(\\d+)', testController.control);
 
 module.exports = router;

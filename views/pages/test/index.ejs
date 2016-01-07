@@ -28,9 +28,13 @@
       <button type="button" name="btnStart" id="btnStart">Start</button>
     </section>
 
-    <section class="main" id="pregunta" style="display:none">
-       <p><strong>Pregunta: <%- quizes[test.idQ].pregunta %> </strong></p>
-       <%- include(quizes[test.idQ].tipo) %>
+    <section class="main" id="pregunta" >
+       <form method="get" action="/test/<%= quizes[idQ].id %>">
+         <p><strong>Pregunta: <%- quizes[idQ].pregunta %> </strong></p>
+         <%- include(quizes[idQ].tipo) %>
+         <br>
+         <button type="submit" class="btn btn-primary">Siguiente</button>
+       </form>
     </section>
 
     <section class="main" id="contador">
