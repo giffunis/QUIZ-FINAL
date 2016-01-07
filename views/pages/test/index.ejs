@@ -16,29 +16,19 @@
 
     <% include ../../partials/nav %>
 
-    <section class="main" id="preguntas">
-      <h3>Preguntas de la BBDD</h3>
-      <% if(quizes != null){ %>
-        <ul>
-          <% for(var i = 0; i < quizes.length; i++){ %>
-            <li> Pregunta <%= i + 1 %>: <a href="/quizes/<%= quizes[i].id %>"><%- quizes[i].pregunta %></a></li>
-          <% } %>
-        </ul>
-      <% } %>
-      <button type="button" name="btnStart" id="btnStart">Start</button>
-    </section>
-
     <section class="main" id="pregunta" >
-       <form method="get" action="/test/<%= quizes[idQ].id %>">
-         <p><strong>Pregunta: <%- quizes[idQ].pregunta %> </strong></p>
-         <%- include(quizes[idQ].tipo) %>
-         <br>
-         <button type="submit" class="btn btn-primary">Siguiente</button>
-       </form>
-    </section>
 
-    <section class="main" id="contador">
-       Tiempo: <span id="minutos">00</span>:<span id="segundos">00</span>
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-md-6">
+             <form method="get" action="/test/<%= quizes[idQ].id %>">
+               <p><strong>Pregunta: <%- quizes[idQ].pregunta %> </strong></p>
+               <%- include(quizes[idQ].tipo) %>
+               <br>
+               <button type="submit" class="btn btn-primary">Siguiente</button>
+             </form>
+           </div>
+
     </section>
 
     <footer class="main" id="f1">
