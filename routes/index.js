@@ -28,7 +28,7 @@ router.get('/user/show', sessionController.loginRequired, userController.show);
 router.get('/user/:userId(\\d+)/show', sessionController.loginRequired, userController.perfil);
 
 // ------------------------------ TEST ROUTES -------------------------------
-router.get('/test', testController.home);
-router.get('/test/:quizId(\\d+)', testController.control);
+router.get('/test', sessionController.loginRequired, testController.home);
+router.get('/test/:quizId(\\d+)', sessionController.loginRequired, testController.control);
 
 module.exports = router;
