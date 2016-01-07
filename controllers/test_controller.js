@@ -22,7 +22,7 @@ exports.control = function(req, res){
         models.User.find({where:{username: req.session.user.username}}).then(function(user){
           user.bestScore = req.session.user.bestScore;
           user.save();
-          res.render('pages/quizes/index', {quizes: quizes});
+          res.render('pages/quizes/resultado', {resultado: req.session.user.score});
         }).catch(function(error){
           next(new Error(error));
         });
