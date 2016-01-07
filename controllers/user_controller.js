@@ -63,7 +63,7 @@ exports.show = function(req, res, next){
 };
 
 exports.index = function(req, res){
-  models.User.findAll().then(function(users){
+  models.User.findAll({order:[["bestScore", "DESC"]]}).then(function(users){
     res.render('pages/user/index', {usuarios: users});
   });
 };
