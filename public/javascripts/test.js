@@ -1,13 +1,22 @@
+
 $(function() {
   $( "#btnStart" ).click(function() {
     $("#preguntas").hide();
     $("#pregunta").show();
-    reloj();
+    // reloj();
+  });
+
+  $("#siguiente").click(function(){
+    var parameters = { search: $(this).val() };
+    $.get( '/searching',parameters, function(data) {
+      $('#pregunta').html(data);
+    });
   });
 
 
 });
 
+// FUNCIONES LLAMADAS ANTERIORMENTE
 var cronometro;
 function detenerse(){
   clearInterval(cronometro);

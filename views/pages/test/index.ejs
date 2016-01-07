@@ -29,7 +29,8 @@
     </section>
 
     <section class="main" id="pregunta" style="display:none">
-       Pregunta
+       <p><strong>Pregunta: <%- quizes[test.idQ].pregunta %> </strong></p>
+       <%- include(quizes[test.idQ].tipo) %>
     </section>
 
     <section class="main" id="contador">
