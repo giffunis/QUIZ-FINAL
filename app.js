@@ -10,7 +10,7 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var quizesRoute = require('./routes/quizes.js');
 var usersRouter = require('./routes/users.js');
-
+var testsRouter = require('./routes/tests.js');
 var expressLayouts = require('express-ejs-layouts');
 var app = express();
 
@@ -44,6 +44,7 @@ app.use(function(req,res,next){
 app.use('/', routes);
 app.use('/quizes',quizesRoute);
 app.use('/user',usersRouter);
+app.use('/test',testsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
