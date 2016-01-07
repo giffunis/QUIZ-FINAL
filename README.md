@@ -21,9 +21,9 @@ To install dependencies:
 
     $ npm install
 
-And to bring up the server:
+And to bring up the server(on port:5000):
 
-    $ npm start
+    $ foreman start
 
 #### 4.  Links.
 
