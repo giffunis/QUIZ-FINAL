@@ -3,6 +3,7 @@ var models = require('../models/models.js');
 exports.home = function(req, res, next){
   models.Quiz.findAll().then(function(quizes){
     req.session.user.score = 0;
+    req.session.user.contPreg = 0;
     res.render('pages/test/index', {quizes: quizes, idQ: 0});
   }).catch(function(error){
     next(new Error(error));
@@ -14,8 +15,9 @@ exports.control = function(req, res){
     req.session.user.score = req.session.user.score + 10;
   }
   models.Quiz.findAll().then(function(quizes){
-    if(req.quiz.id < quizes.length){
-      res.render('pages/test/index', {quizes: quizes, idQ: req.quiz.id});
+    if(req.session.user.contPreg < quizes.length - 1){
+      req.session.user.contPreg = req.session.user.contPreg + 1;
+      res.render('pages/test/index', {quizes: quizes, idQ: req.session.user.contPreg});
     } else {
       if(req.session.user.score > req.session.user.bestScore){
         req.session.user.bestScore = req.session.user.score;
@@ -26,7 +28,7 @@ exports.control = function(req, res){
           next(new Error(error));
         });
       }
-      res.render('pages/quizes/resultado', {resultado: req.session.user.score});
+      res.render('pages/test/resultado', {resultado: req.session.user.score});
     }
   }).catch(function(error){
     next(new Error(error));
